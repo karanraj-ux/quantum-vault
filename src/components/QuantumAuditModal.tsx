@@ -720,7 +720,7 @@ export const QuantumAuditModal: React.FC<QuantumAuditModalProps> = ({
                     <div className="p-3 rounded-lg bg-slate-900 border border-emerald-500/40 space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-emerald-400">ML-KEM-768</span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-500/30">Quantum Immune</span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-500/30">PQC Protected</span>
                       </div>
                       <div className="text-[11px] text-slate-300 font-mono space-y-1">
                         <div>KeyGen: {benchmarkResult.postQuantum.keygenTimeMs} ms · Encapsulate: {benchmarkResult.postQuantum.encryptTimeMs} ms</div>

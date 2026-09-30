@@ -3,10 +3,10 @@
  * 
  * Enables zero-cloud, direct browser-to-browser data streaming:
  * - Creates direct encrypted RTCDataChannel between two peer browsers.
- * - Out-of-band ephemeral NIST ML-KEM-768 hybrid lattice key encapsulation (immune to Shor's algorithm).
+ * - Out-of-band ephemeral NIST ML-KEM-768 hybrid lattice key encapsulation (designed to resist Shor's algorithm).
  * - Application-layer AES-256-GCM authenticated chunk encryption on top of WebRTC DTLS.
  * - Streams multi-megabyte / gigabyte binary files in 64KB chunks with flow control.
- * - Zero intermediary storage, zero relay server logging, 100% Harvest Now Decrypt Later (HNDL) immune.
+ * - Zero intermediary storage, zero relay server logging; HNDL-resistant by design (no absolute guarantees).
  */
 
 import {

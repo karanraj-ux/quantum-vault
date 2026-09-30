@@ -13,7 +13,8 @@
  *
  * Harvest-now-decrypt-later defense: an adversary capturing cloud shards and
  * manifests obtains AES-GCM ciphertext whose keys are sealed under ML-KEM-768.
- * No quantum computer can recover them without the vault private key.
+ * Designed to resist known quantum attacks using NIST-standardized post-quantum
+ * cryptography — no absolute "unbreakable" guarantee is claimed.
  */
 
 import { get, set } from 'idb-keyval';

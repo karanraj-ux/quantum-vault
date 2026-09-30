@@ -52,6 +52,7 @@ function publicChunkProxyPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
+    base: '/quantum-vault/',
     plugins: [react(), tailwindcss(), publicChunkProxyPlugin()],
     resolve: {
       alias: {

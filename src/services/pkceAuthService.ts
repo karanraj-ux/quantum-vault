@@ -49,7 +49,10 @@ export async function generateCodeChallenge(verifier: string): Promise<string> {
 
 export function getAppRedirectUri(): string {
   if (typeof window === 'undefined') return '';
-  return `${window.location.origin}${window.location.pathname}`;
+  // Strip a trailing index.html so the URI is stable no matter which
+  // canonical URL served the app (e.g. /quantum-vault/ vs /quantum-vault/index.html).
+  const path = window.location.pathname.replace(/index\.html$/, '');
+  return `${window.location.origin}${path}`;
 }
 
 // ==========================================

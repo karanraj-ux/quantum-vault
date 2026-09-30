@@ -1,6 +1,6 @@
 # 🛡️ Quantum Vault
 
-> **Post-quantum secure, zero-server, multi-cloud storage for teams.** Your files are encrypted in the browser, sharded across Google Drive, OneDrive, and Dropbox — so no single provider ever holds your complete data, and no quantum computer of the future can read what it intercepts today.
+> **Post-quantum secure, zero-server, multi-cloud storage for teams.** Your files are encrypted in the browser, sharded across Google Drive, OneDrive, and Dropbox — so no single provider ever holds your complete data, and file keys are protected with NIST-standardized post-quantum cryptography designed to resist known quantum attacks.
 
 **Track:** Q-HACK India 2026 — Quantum Security & Cryptography
 
@@ -24,7 +24,7 @@ Quantum Vault is built on **Matrix Workspace**, our pre-existing zero-server mul
 Attackers don't need a quantum computer *today*. They capture encrypted data now and store it — waiting for a cryptographically relevant quantum computer to decrypt it later. Files with a 5–10 year secrecy lifetime (contracts, medical records, IP, government data) are already exposed if their key exchange relies on RSA/ECDH.
 
 **Quantum Vault defends against this in two ways:**
-1. **Quantum-resistant key protection** — file encryption keys are wrapped with ML-KEM-768, a NIST-standardized post-quantum key encapsulation mechanism. Even a future quantum adversary that captures the ciphertext cannot recover the keys.
+1. **Quantum-resistant key protection** — file encryption keys are wrapped with ML-KEM-768, a NIST-standardized post-quantum key encapsulation mechanism, designed so captured ciphertext resists known quantum attacks.
 2. **Sharded storage** — no single cloud provider holds a complete file. Shards are spread across Google Drive, OneDrive, and Dropbox with XOR parity (RAID-5 style), so a breach at one provider yields only fragments.
 
 ---
@@ -72,7 +72,16 @@ npm run dev
 
 Connect your Google Drive, OneDrive, and/or Dropbox accounts from **Security & Accounts**, then upload a file to the vault. Open the Quantum Security Audit to see the threat model applied to your own files.
 
-> Bring your own Google OAuth Client ID in Settings (BYOK) for local development, or use the hosted Firebase auth.
+> Google sign-in uses BYOK: paste your own Google OAuth Client ID in **Settings** (the Client ID's *Authorized JavaScript origins* must include the site's origin, e.g. `https://karanraj-ux.github.io` for the hosted demo). OneDrive/Dropbox use PKCE — add the site URL (e.g. `https://karanraj-ux.github.io/quantum-vault/`) as a redirect URI in your Azure / Dropbox app settings.
+
+## 🎬 Demo script (3 minutes)
+
+1. **Connect** a Google account (BYOK Client ID in Settings) — show the account appear under Security & Accounts.
+2. **Upload** any file to the vault — point out the purple **Quantum Shield** badge: this file's data key is wrapped with ML-KEM-768 (manifest v3.0).
+3. **Open Security Audit** — the vault verdict, per-file A/B/F grades computed from real manifests, and the HNDL threat-model explainer.
+4. **Export the JSON audit report** — judges can inspect the machine-readable evidence.
+5. **Create a magic link** for the file, open it in an incognito window — the recipient downloads and decrypts with only that file's data key, never the vault master key.
+6. Close on the disclosure: Matrix Workspace is the pre-existing base; the post-quantum layer is the new Q-HACK work.
 
 ---
 
